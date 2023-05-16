@@ -14,10 +14,13 @@ window.addEventListener('load', () => {
 });
 
 function init (){
+    if (document.calcButton){
     doc.calcButton.addEventListener('click', () =>{
         console.log('működik')
         startCalc();
     });
+}
+    //checkInput(30);
 }
 
 function startCalc(){
@@ -28,8 +31,25 @@ function startCalc(){
 
 }
 
-function calcBodyindex(weight, height){
+function calcBodyIndex(weight, height){
     return weight / Math.pow(height, 2);
+}
+
+function checkInput(input){
+    let inputStr = String(input);
+    let inputNum = Number(input);
+    if (inputStr.match(/^[0-9.]+$/)){
+        if(inputNum > 0){
+        return true;
+    }else{
+        return false;
+    }
+    
+    }else{
+        return false;
+    }
+   
+    
 }
 
 
